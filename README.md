@@ -76,8 +76,8 @@ Not: Kullanıcı adı ve şifre arasında boşluk olmamalı, birleşik şekilde 
  
 **Örnek POST/GET URL'si**
 
- - **https://organikapi.com/v**`2`/`ce136df4c9c92d1428e828aba07d3b05`/`balance`/
- - **https://organikapi.com/v**`2`/`ce136df4c9c92d1428e828aba07d3b05`/`sendsms`/`json`/`xml`/
+ - **https://organikapi.com/v2/ce136df4c9c92d1428e828aba07d3b05/balance/**
+ - **https://organikapi.com/v2/ce136df4c9c92d1428e828aba07d3b05/sendsms/json/xml/**
  
 API'ye gönderdiğiniz istek yapısı yukarıdaki gibi olmalıdır. İstek yolundaki değişkenlerin değerleri aşağıdaki tabloda verilmiştir.
 
