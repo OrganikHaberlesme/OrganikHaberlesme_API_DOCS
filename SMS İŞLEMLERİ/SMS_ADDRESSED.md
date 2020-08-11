@@ -41,9 +41,9 @@ Bu mesaj metni işlenirken çıktısı veritabanındaki bilgilere göre değişe
 > https://organikapi.com/v2/ce136df4c9c92d1428e828aba07d3b05/sendsms/
 
 ### İstekte Bulunma:
-Organik API tek bir istek gövdesinde birden fazla ileti oluşturarak, bu iletilerde ayrı ayrı binlerce numaraya SMS göndermenize imkan verir. Yanıt gövdesinin içinde bulunan global_options nesnesinin değerleri ile gövde içinde bulunan bütün iletilere ortak ayarlar tanımlayabileceğiniz gibi, oluşturduğunuz tüm iletilerin içinde yer alan options nesnesi ile ayrı ayrı ayarlar da tanımlayabilirsiniz.
+Organik API tek bir istek gövdesinde birden fazla ileti oluşturarak, bu iletilerde ayrı ayrı binlerce numaraya SMS göndermenize imkan verir. Yanıt gövdesinin içinde bulunan `global_options` nesnesinin değerleri ile gövde içinde bulunan bütün iletilere ortak ayarlar tanımlayabileceğiniz gibi, oluşturduğunuz tüm iletilerin içinde yer alan `options` nesnesi ile ayrı ayrı ayarlar da tanımlayabilirsiniz.
 
-API iletilerinize özellik atamalarını yaparken varsayılan olarak önce global_options nesnesini kontrol eder. Bu nesnenin içinde yer alan bilgilerin tümünü, tüm iletilere atar. global_options nesnesinin içinde yer almayan özellikleri ise iletilerin options nesnesinde arar.
+API iletilerinize özellik atamalarını yaparken varsayılan olarak önce `global_options` nesnesini kontrol eder. Bu nesnenin içinde yer alan bilgilerin tümünü, tüm iletilere atar. `global_option`s nesnesinin içinde yer almayan özellikleri ise iletilerin `options` nesnesinde arar.
 
 Aşağıda örnek istek gövdeleri ve içindeki değişken ve nesnelerin anlamlarını anlatan tabloları bulabilirsiniz.
 
