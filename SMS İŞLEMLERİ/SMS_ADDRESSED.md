@@ -38,7 +38,7 @@ Bu mesaj metni işlenirken çıktısı veritabanındaki bilgilere göre değişe
 **POST** HTTP/1.1
 
 Örnek `POST` URL'si:
-> **https://organikapi.com**/v2/`ce136df4c9c92d1428e828aba07d3b05`/**sendsms**/
+> https://organikapi.com/v2/ce136df4c9c92d1428e828aba07d3b05/sendsms/
 
 ### İstekte Bulunma:
 Organik API tek bir istek gövdesinde birden fazla ileti oluşturarak, bu iletilerde ayrı ayrı binlerce numaraya SMS göndermenize imkan verir. Yanıt gövdesinin içinde bulunan global_options nesnesinin değerleri ile gövde içinde bulunan bütün iletilere ortak ayarlar tanımlayabileceğiniz gibi, oluşturduğunuz tüm iletilerin içinde yer alan options nesnesi ile ayrı ayrı ayarlar da tanımlayabilirsiniz.
