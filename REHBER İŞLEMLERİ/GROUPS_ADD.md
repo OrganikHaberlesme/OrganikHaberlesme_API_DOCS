@@ -133,5 +133,5 @@ Reponse Body:
 |Node|Tip|Açıklama|
 |-|-|-|
 |result|Boolean / Int|Yanıt işleminin durumunu belirtir.`true`/`false`değerlerini alır.`XML`yanıt gövdelerinde bu değer`Int`olur ve 0 / 1 değerlerini alır.|
-|data.id |Integer|grubun benzersiz ID'si.|
-|data.name	String	grup adı.|
+|data.id |Integer|Grubun benzersiz ID'si.|
+|data.name|String|Grup adı.|
