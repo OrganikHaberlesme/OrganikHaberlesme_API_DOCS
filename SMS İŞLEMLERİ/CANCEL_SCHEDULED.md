@@ -67,7 +67,7 @@ Response Headers:
 ```
 Method:       POST
 Status:       200 OK
-URL:          /v2/ce136df4c9c92d1428e828aba07d3b05/sendsms/json/
+URL:          /v2/ce136df4c9c92d1428e828aba07d3b05/cancelscheduledtasks/json/
 Host:         organikapi.com
 Content-Type: application/json
 ```
@@ -100,7 +100,7 @@ Response Headers:
 ```
 Method:       POST
 Status:       200 OK
-URL:          /v2/ce136df4c9c92d1428e828aba07d3b05/sendsms/xml/
+URL:          /v2/ce136df4c9c92d1428e828aba07d3b05/cancelscheduledtasks/xml/
 Host:         organikapi.com
 Content-Type: application/xml
 ```
