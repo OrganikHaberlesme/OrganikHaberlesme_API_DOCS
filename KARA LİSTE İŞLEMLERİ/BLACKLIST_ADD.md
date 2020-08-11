@@ -61,7 +61,7 @@ Form Data:
 
 |Değişken|Gereklilik|Tip|Açıklama|
 |-|-|-|-|
-|persons|Zorunlu|Array|Bu değişkeni göndererek ister tek ister "," ile ayırarak birden çok GSM numarasını aynı anda kara listeye ekleyebilirsiniz. Bu değişkenin gönderilmesi zorunludur.|
+|gsms|Zorunlu|Array|Bu değişkeni göndererek ister tek ister "," ile ayırarak birden çok GSM numarasını aynı anda kara listeye ekleyebilirsiniz. Bu değişkenin gönderilmesi zorunludur.|
 
 
 
