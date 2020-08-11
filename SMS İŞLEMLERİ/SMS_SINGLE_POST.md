@@ -13,7 +13,7 @@ request_name = sendsms
 **POST** HTTP/1.1
 
 Örnek `POST`` URL'si:
-> **https://organikapi.com**/v2/`ce136df4c9c92d1428e828aba07d3b05`/**sendsms**/
+> https://organikapi.com/v2/ce136df4c9c92d1428e828aba07d3b05/sendsms/
 
 # Örnek İstek Gövdeleri:
 ## JSON
