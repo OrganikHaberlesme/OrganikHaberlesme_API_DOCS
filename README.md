@@ -5,6 +5,7 @@
 API'ye gönderdiğiniz isteklerin ve aldığınız yanıtların tümü tek bir URL üzerinden çalışır. API farklı komutlar için farklı metodlarla çalışır. Genel olarak bu metodlar `GET` ve `POST`'tur. Hangi fonksiyonun, hangi metodla çalıştığı ilgili sayfalarda belirtilmiştir.
 
   - `API URL`: **https://organikapi.com/**
+  
 
 # İstek & Yanıt İçerik Tipleri
 
