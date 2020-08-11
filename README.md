@@ -93,18 +93,140 @@ API'ye gönderdiğiniz istek yapısı yukarıdaki gibi olmalıdır. İstek yolun
 
 Bu bölümde URL'de yer alan `request_name`, `request_response_type` ve `response_type` değişkenlerinin alabileceği değerler ve anlamları anlatılmıştır. API fonksiyonlarının detaylı anlatımları, ilgili başlıklar altında verilmiştir.
 
-| | | |
-|-|-|-|
+## request_name
+
 |Metod|Alabileceği Değer|Açıklama|
+|-|-|-|
 |GET|balance|Kredi sorgulama metodudur. API'ye bu değer gönderildiğinde size sonuç olarak hesabınızdaki TL ve SMS kredi bakiyenizi döndürür.|
 |GET|headers|Kayıtlı gönderen kimliklerinizi (başlıklarınızı) sorgulama metodudur. Yanıt olarak başlık ID ve başlık isimlerini döndürür.|
-|GET|smsviaget|GET ile tekli SMS gönderme metodudur. Detaylı anlatımı SMS Gönderme başlığında verilmiştir.|
-|POST|sendsms|Toplu ve hitaplı SMS gönderme metodudur. Detaylı anlatımı SMS Gönderme başlığında verilmiştir.|
-|POST|detailedreport|Detaylı rapor alma metodudur. Detaylı anlatımı Detaylı Rapor Alma başlığında verilmiştir.|
-|POST|basicreport|Basit rapor alma metodudur. Detaylı anlatımı Basit Rapor Alma başlığında verilmiştir.|
+|GET|smsviaget|GET ile tekli SMS gönderme metodudur. Detaylı anlatımı SMS Gönderme başlığında verilmiştir.|
+|POST|sendsms|Toplu ve hitaplı SMS gönderme metodudur. Detaylı anlatımı SMS Gönderme başlığında verilmiştir.|
+|POST|detailedreport|Detaylı rapor alma metodudur. Detaylı anlatımı Detaylı Rapor Alma başlığında verilmiştir.|
+|POST|basicreport|Basit rapor alma metodudur. Detaylı anlatımı Basit Rapor Alma başlığında verilmiştir.|
 |GET|groups|Kayıtlı grupları sorgulama metodudur. Grup ID'leri, isimleri ve gruplardaki kayıtlı kişi sayılarını döndürür.|
 |POST|groupcontent|Belirli grup veya grupların kişi bilgilerini sorgulama metodudur. Kişilerin ID, ad, soyad, doğum tarihi gibi bilgilerini döndürür.|
 |POST|cancelscheduledtasks|İleri tarihli gönderimleri iptal etme metodudur.|
 |GET|blacklist|Kara listenizdeki numaraları listeleme metodudur. GSM numaralarını ve kara listeye eklenme tarihlerini döndürür.|
 |POST|blacklistadd|Kara listeye numara ekleme metodudur.|
 |POST|blacklistremove|Kara listeden numara çıkarma metodudur.|
+
+## request_response_type
+
+`request_response_type` parametresi ile API'ye gönderdiğiniz bilgilerin ve almak istediğiniz yanıtın hangi formatta olacağını belirtirsiniz. Örneğin sadece `request_response_type` değerine `XML` atandığı durumlarda API hem yanıt hem de istek gövdelerini `XML` formatında bekler ve döndürür. Kullanılması zorunlu değildir. Varsayılan değeri `JSON`'dır.
+
+|Tip|Alabileceği Değer|Açıklama|
+|-|-----|-|
+|String|`JSON`|`POST` ettiğiniz istek gövdesi tipinin `JSON` olması durumunda bu değer verilmelidir. `request_response_type` değeri URL'de belirtilmezse varsayılan olarak bu değer atanır ve `POST` edilen istek gövdesi `JSON` gibi işlenir.|
+|String|`XML`|`POST` ettiğiniz istek gövdesi tipinin `XML` olması durumunda bu değer verilmelidir.|
+
+## response_type
+|Tip|Alabileceği Değer|Açıklama|
+|-|-----|-|
+|String|`JSON`|Almak istediğiniz yanıt `JSON` formatında ise bu değer verilmelidir.|
+|String|`XML`|Almak istediğiniz yanıt `XML` formatında ise bu değer verilmelidir.|
+
+# Yanıt Yapısı
+
+Organik API, verdiği yanıtların tipini belirlemenize olanak sağlar. İstek Yapısı bölümünde anlatılan bilgiler doğrultusunda API'nin verdiği yanıt bloğu ve içeriği, tip bazlı olarak aşağıda anlatılmıştır.
+
+## JSON
+
+Response Headers:
+```
+Method:       POST
+Status:       200 OK
+Host:         organikapi.com
+Content-Type: application/json
+```
+Form Data:
+```
+{
+    "response": {
+        "result": Boolean,
+        "data": {...},
+        "error": {
+            "message": String,
+            "number": String,
+            "time": Date,
+            "code": Int
+        }
+    }
+}
+```
+
+## XML
+
+Response Headers:
+```
+Method:       POST
+Status:       200 OK
+Host:         organikapi.com
+Content-Type: application/xml
+```
+Form Data:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<result>Int</result>
+	<data>...</data>
+	<error>
+		<message>String</message>
+		<number>String</number>
+		<time>Date</time>
+		<code>Int</code>
+	</error>
+</response>
+```
+
+|Node|Tip|Açıklama|
+|-|-|-|
+|response|Node|Yanıt gövdesinin ilk elemanıdır.|
+|result|Boolean / Int|Yanıt işleminin durumunu belirtir.`true`/`false` değerlerini alır. Başarılı işlemlerde hemen arkasından yanı verilerinin olduğu `data` bloğu gelir ve error bloğu gönderilmez, başarısız işlemlerde ise tam tersi olacak şekilde `data` bloğu gönderilmez ancak `error` bloğu gönderilir.`XML` **yanıt gövdelerinde bu değer Int olur ve 0 / 1 değerlerini alır.**|
+|data|Node|Yanıt işleminin içeriğini barındırır. API'den talep edilen işleme göre içeriği değişir. Ancak API'den dönen tüm reel veriler bu bölüm içinde sunulur. Başarısız işlemlerin yanıt gövdesinde yer almaz.|
+|error|Node|Bu bölüm sadece başarısız işlemlerde gönderilir. Hata mesajı, numarası, kodu ve zamanı bilgilerini içerir. Hata kodları ve anlamlarını `Hata Kodları` bölümünde bulabilirsiniz.|
+
+# SMS Boyları
+
+Gönderim yaptığınız SMS'lerin uzunlukları belirli sayıda karakterlerden oluşur. Bu karakter sayıları aşıldıkça belirli karakter sayısı aralıkları SMS sayısını belirler. SMS boyları ve mesaj uzunlukları kullandığınız mesaj tipine (`normal`, `turkish`, `unicode`) göre değişir. Aşağıdaki tabloda hangi uzunlukların, kaç adet SMS'e eşdeğer olduğu bilgilerini ve bunların nasıl hesaplandığını bulabilirsiniz. **Aşağıda verilen bilgiler yurtiçi gönderimler için geçerli olup, yurtdışı gönderimlerde kredi yerine TL kullanılmaktadır.**
+
+Oluşturduğunuz gönderimlerin uzunluk hesaplarını aşağıdaki bilgiler ışığında yaparak SMS kredilerinizin tasarruflarını kontrol altında tutabilirsiniz.
+
+`normal` bir ileti metninin alabileceği en fazla karakter sayısı **1071**'dir ve en fazla **7** boy olabilir.
+
+`turkish` bir ileti metninin alabileceği en fazla karakter sayısı **1043**'tür ve en fazla **7** boy olabilir.
+
+`unicode` bir ileti metninin alabileceği en fazla karakter sayısı **469**'dır ve en fazla **7** boy olabilir.
+
+`normal`
+|Karakter|Boy|Kredi|
+|-|-|-|
+|Karakter|Boy|Kredi|
+|0 - 160|1 SMS|1 Kredi|
+|161 - 306|2 SMS|2 Kredi|
+|307 - 459|3 SMS|3 Kredi|
+|460 - 612|4 SMS|4 Kredi|
+|613 - 765|5 SMS|5 Kredi|
+|766 - 918|6 SMS|6 Kredi|
+|919 - 1071|7 SMS|7 Kredi|
+
+`turkish`
+|Karakter|Boy|Kredi|
+|-|-|-|
+|0 - 155|1 SMS|1 Kredi|
+|156 - 298|2 SMS|2 Kredi|
+|299 - 447|3 SMS|3 Kredi|
+|448 - 596|4 SMS|4 Kredi|
+|597 - 745|5 SMS|5 Kredi|
+|746 - 894|6 SMS|6 Kredi|
+|895 - 1043|7 SMS|7 Kredi|
+
+`unicode`
+|Karakter|Boy|Kredi|
+|-|-|-|
+|0 - 70|1 SMS|1 Kredi|
+|71 - 134|2 SMS|2 Kredi|
+|135 - 201|3 SMS|3 Kredi|
+|202 - 268|4 SMS|4 Kredi|
+|269 - 335|5 SMS|5 Kredi|
+|336 - 402|6 SMS|6 Kredi|
+|403 - 469|7 SMS|7 Kredi|
