@@ -13,7 +13,7 @@ Organik API oluşturduğunuz gönderim görevlerindeki her bir numara için ayr�
 > /v2/`api_key`/**request_name**/`response_request_type`/**response_type**/
 **POST** HTTP/1.1
 
-Örnek `POST`` URL'si:
+Örnek `POST` URL'si:
 > **https://organikapi.com**/v2/`ce136df4c9c92d1428e828aba07d3b05`/**sendsms**/
 
 ### İstekte Bulunma:
