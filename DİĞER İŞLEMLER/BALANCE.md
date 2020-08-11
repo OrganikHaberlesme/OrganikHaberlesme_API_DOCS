@@ -8,7 +8,7 @@ Bakiye sorgulama metodu ile kalan SMS kredilerinizi ve TL bakiyenizi öğrenebil
 
 
 `GET` URL Şablonu:
-> /v2/`api_key`/**request_name**/`response_request_type`/
+> /v2/`api_key`/**request_name**/`request_response_type`/
 **GET** HTTP/1.1
 
 Örnek `GET` URL'si:
