@@ -65,32 +65,27 @@ Form Data:
       "global_options": {
          "track_id": "1234",
          "header": "ORGANIKHBR",
-         "delivery_time": "2014-05-12 23:40",
-         "timeout": 24,
+         "delivery_time": "",
+         "timeout": 48,
          "message_format": 0,
-         "report_url": "http://www.domain.com",
+         "report_url": "",
          "gsm_isUnique": 0
       },
       "deliveries": [
          {
             "options": {
                "track_id": "1235",
-               "header": 3,
-               "delivery_time": "2014-05-12 23:40",
+               "header": "OHT",
+               "delivery_time": "",
                "timeout": 12,
-               "message_format": 1,
-               "report_url": "http://www.domain2.com"
+               "message_format": "",
+               "report_url": ""
             },
             "recipients": {
                "groups": [
                   1,
                   2,
                   3
-               ],
-               "gsms": [
-                   905301234567,
-                   905301234568,
-                   905301234569
                ]
             },
             "message": "QnUgYmlyIGRlbmVtZSBtZXNhasSxZMSxcg=="
