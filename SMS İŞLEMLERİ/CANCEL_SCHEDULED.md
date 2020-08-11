@@ -130,5 +130,4 @@ Reponse Body:
 |result|Boolean / Int|Yanıt işleminin durumunu belirtir. true / false değerlerini alır. XML yanıt gövdelerinde bu değer Int olur ve 0 / 1 değerlerini alır.|
 |data.transaction_id|Integer|İptal edilmesi istenen ileri tarihli gönderimin benzersiz ID'si.|
 |data.status|Integer|İptal edilmesi istenen görevin işlem durumu. JSON yanıt gövdelerinde, true / false, XML yanıt gövdelerinde ise 1 - başarılı, 0 - başarısız değerlerini alır.|
-# Dinamik Keliemer
-Aşağıdaki tabloda API2nin desteklediği dinamik kelimeleri bulabilirsiniz. Bu kelimelerin içerikleri, gruplarınızdaki kişilerin bilgilerinden gelmektedir. Örneğin, `AD` dinamik kelimesinin değeri, gönderim yapılan numaranın AD alanından gelir. Bu alanları panelde `Rehber > Kayıtlı Gruplar` sekmesinden düzenlersiniz.
+
