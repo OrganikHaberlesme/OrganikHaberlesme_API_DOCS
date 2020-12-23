@@ -1,6 +1,6 @@
 # API URL
 
-[![N|Solid](https://veyosis.com/assets/img/logo-api-docs.png)](https://nodesource.com/products/nsolid)
+[![N|Solid](https://www.organikhaberlesme.com.tr/assets/images/organik-logo.png)](https://nodesource.com/products/nsolid)
 
 API'ye gönderdiğiniz isteklerin ve aldığınız yanıtların tümü tek bir URL üzerinden çalışır. API farklı komutlar için farklı metodlarla çalışır. Genel olarak bu metodlar `GET` ve `POST`'tur. Hangi fonksiyonun, hangi metodla çalıştığı ilgili sayfalarda belirtilmiştir.
 
